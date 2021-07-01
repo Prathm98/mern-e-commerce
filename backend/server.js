@@ -7,11 +7,11 @@ app.get("/", (req, res) => {
     res.send("API running")
 })
 
-app.get("/api/product", (req, res) => {
+app.get("/api/products", (req, res) => {
     res.json(products)
 })
 
-app.get("/api/product/:id", (req, res) => {
+app.get("/api/products/:id", (req, res) => {
     var product = products.find(p => p._id === req.params.id)
     res.json(product)
 })
