@@ -10,16 +10,13 @@ router.get("/", asyncHandler(async (req, res) => {
     res.json(products)
 }))
 
-router.get("/:id", asyncHandler(async (req, res) => {
-    if(!mongoose.Types.ObjectId.isValid(req.params.id)){
-        res.status(400).json({message: "Product not found"})
+router.get("/:id", asyncHandler(async (req, res) => {   
+    console.log("P");
+    var product = await Product.findById(req.params.id)
+    if(product){
+        res.json(product)
     }else{
-        var product = await Product.findById(req.params.id)
-        if(product){
-            res.json(product)
-        }else{
-            res.status(400).json({message: "Product not found"})
-        }
+        throw new Error("Product not found")
     }
 }))
 
