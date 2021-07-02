@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import { useDispatch, useSelector } from 'react-redux'
-import { productList } from '../actions/productActions'
+import { getProductList } from '../actions/productActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
@@ -13,8 +13,8 @@ const HomeScreen = () => {
     const { products, loading, error } = productlist;
 
     useEffect(() => {  
-        dispatch(productList())
-    }, [])
+        dispatch(getProductList())
+    }, [dispatch])
 
     return (
         loading? <Loader />: error? <Message variant="danger">{error}</Message>:
