@@ -11,7 +11,6 @@ router.get("/", asyncHandler(async (req, res) => {
 }))
 
 router.get("/:id", asyncHandler(async (req, res) => {   
-    console.log("P");
     var product = await Product.findById(req.params.id)
     if(product){
         res.json(product)
