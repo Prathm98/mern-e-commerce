@@ -31,7 +31,7 @@ const CartScreen = ({ history, location, match }) => {
         <Row>
             <Col md="8">
                 <h1>Shopping Cart</h1>
-                {cartItems.length == 0? 
+                {cartItems.length === 0? 
                 <Message>Your cart is empty <Link to="/">Go Back</Link></Message>: 
                 <ListGroup variant="flush">
                     {cartItems.map(i => <ListGroup.Item key={i.id}>
