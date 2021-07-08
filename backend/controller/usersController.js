@@ -10,7 +10,7 @@ const authUser = asyncHandler(async (req, res) => {
 
     const user = await User.findOne({email})
 
-    if(user && user.matchPassword(password)){
+    if(user && await user.matchPassword(password)){
         res.json({
             _id: user.id,
             name: user.name,
@@ -18,7 +18,7 @@ const authUser = asyncHandler(async (req, res) => {
             isAdmin: user.isAdmin,
             token: generateToken(user._id)
         })
-    }else{
+    }else{ 
         res.status(401)
         throw new Error('Invalid username or password')
     }
