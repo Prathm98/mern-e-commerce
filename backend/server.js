@@ -11,6 +11,14 @@ connectDB()
 
 app.use(express.json())
 
+// CORS policy
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Headers', '*');
+//     res.header('Access-Control-Allow-Methods', '*');
+//     next();
+// });
+
 app.get("/", (req, res) => {
     res.send("API running")
 })
